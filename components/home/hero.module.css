@@ -1,0 +1,117 @@
+.hero-box {
+  background-color: var(--clr-blue-light);
+  border-radius: 20px;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+@media (width < 768px) {
+  .hero-box {
+    padding: 30px 10px;
+  }
+}
+
+.hero-box .subtitle {
+  background-color: var(--clr-magenta-light);
+  color: var(--clr-magenta);
+  padding: 5px 1rem;
+  border-radius: 50px;
+  font-size: var(--font-description);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero-box .heading {
+  color: var(--clr-black);
+  font-size: var(--font-title-lg);
+  font-weight: 700;
+}
+
+.hero-box .tagline {
+  color: var(--clr-gray-dark);
+  font-size: var(--font-text);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media (width > 760px) {
+  .hero-box .heading {
+    width: min(80%, 620px);
+  }
+
+  .hero-box .tagline {
+    width: min(80%, 900px);
+  }
+}
+
+.hero-box .search-form {
+  width: 100%;
+  position: relative;
+}
+
+.hero-box .search-form input {
+  border: none;
+  width: 100%;
+  padding: 15px 20px 15px 40px;
+  border-radius: 15px;
+  font-family: inherit;
+  color: var(--clr-gray-dark);
+  font-size: 14px;
+  position: relative;
+}
+
+.hero-box .search-form input:focus {
+  outline: 1px solid var(--clr-blue);
+}
+
+.hero-box .search-form label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.hero-box .search-form label img {
+  width: 20px;
+}
+
+.hero-box .search-form button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  background-color: var(--clr-green-cyan-light);
+  color: var(--clr-green-cyan);
+  padding: 13px 23px;
+  font-size: 14px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-box .search-form button img {
+  margin-left: 10px;
+}
+
+@media (width < 768px) {
+  .hero-box .search-form input {
+    font-size: 10px;
+  }
+  .hero-box .search-form button {
+    font-size: 10px;
+  }
+}
