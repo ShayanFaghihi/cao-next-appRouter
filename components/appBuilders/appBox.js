@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CompareContext from "@/context/compare-context";
 
-import classes from "./AppBox.module.css";
+import classes from "./appBox.module.css";
 
 import heartIcon from "@/assets/icons/heart.svg";
 import emptyHeartIcon from "@/assets/icons/heart-unliked.svg";
