@@ -23,12 +23,12 @@ export default function AppsList({
 
   return (
     <section className={classes["app-list-section"]}>
-      {appBuildersList?.map((node) => (
+      {appBuildersList?.map(({ node }) => (
         <AppBox
           key={node.id}
-          title={node.title.rendered}
-          featuredImg={node.featured_media}
-          excerpt={node.excerpt.rendered}
+          title={node.title}
+          featuredImg={node.featuredImage}
+          excerpt={node.excerpt}
           isForAdd={isForAdd}
         />
       ))}

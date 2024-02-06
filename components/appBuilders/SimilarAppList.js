@@ -2,7 +2,7 @@ import React from "react";
 import AppsList from "./appsList";
 import Button from "../UI/button";
 
-const SimilarAppList = (props) => {
+export default function SimilarAppList(props) {
   const appBuilders = props.appBuilders;
   return (
     <section className="similar-apps-section">
@@ -21,6 +21,4 @@ const SimilarAppList = (props) => {
       </Button>
     </section>
   );
-};
-
-export default SimilarAppList;
+}

@@ -1,0 +1,221 @@
+.app-review-box {
+  background-color: var(--clr-light);
+  border-radius: 10px;
+  padding: 10px 10px;
+  box-shadow: var(--box-shadow-box);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (width > 760px) {
+  .app-review-box {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem 2rem 1rem;
+  }
+}
+
+.app-review-box__image {
+  position: relative;
+  width: 100%;
+}
+
+.app-review-box__image {
+  display: inline-block;
+  width: 100%;
+}
+
+.app-review-box__image img {
+  width: 100%;
+  height: 250px;
+  display: inline-block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (width > 760px) {
+  .app-review-box__image {
+    width: 40%;
+  }
+  .app-review-box__image img {
+    height: 390px;
+  }
+}
+
+.app-review-box__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (width > 760px) {
+  .app-review-box__content {
+    width: 60%;
+  }
+}
+
+.app-review-box__content--actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-review-box__content--actions .app-review__link {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: center;
+}
+.app-review-box__content--actions .app-review__link span {
+  border: 1px solid var(--clr-blue);
+  border-radius: 7px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-review-box__content--actions .app-review__link span img {
+  width: 10px;
+}
+.app-review-box__content--actions .app-review__link a {
+  text-decoration: none;
+  font-size: var(--font-title-sm);
+  color: var(--clr-blue);
+}
+
+.app-review-box__content--actions .app-review__action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-review-box__content--actions .app-review__action .like-button {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.app-review-box__content--actions .app-review__action .like-button .like-image,
+.app-review-box__content--actions .app-review__action .share-button {
+  width: 20px;
+  height: 20px;
+  background-color: var(--clr-magenta);
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.app-review-box__content--actions .app-review__action .share-button {
+  background-color: var(--clr-light);
+  box-shadow: var(--box-shadow-icon);
+}
+
+.app-review-box__content--actions
+  .app-review__action
+  .like-button
+  .like-image
+  img {
+  width: 10px;
+  height: auto;
+}
+
+.app-review-box__content .app-review__desc p {
+  font-size: var(--font-text);
+  margin-bottom: 1rem;
+}
+
+.app-review-box__content .app-review__desc h2 {
+  font-size: var(--font-text);
+}
+.app-review-box__content .app-review__desc p + p {
+  margin-top: 10px;
+}
+
+.app-review-box__reviews .app-reviews-list {
+  list-style: none;
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.app-review-box__reviews .app-review-list__item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.app-review-box__reviews .app-review-list__item:nth-of-type(2n) {
+  justify-content: flex-end;
+}
+
+.app-review-box__reviews .app-review-list__item .item {
+  font-weight: 500;
+  font-size: var(--font-description);
+}
+
+.app-review-box__reviews .app-review-list__item .app-support-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.app-review-box__reviews
+  .app-review-list__item
+  .app-support-list
+  .app-support-list__item {
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: var(--clr-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-review-box__reviews
+  .app-review-list__item
+  .app-support-list
+  .app-support-list__item
+  img {
+  width: 15px;
+}
+
+.app-review-box__reviews
+  .app-reviews-list
+  .app-review-list__item
+  .app-builder
+  img {
+  width: 50px;
+}
+
+.app-review-box__reviews .app-review-list__item .star-rating {
+  display: flex;
+  align-items: center;
+}
+
+.app-review-box__reviews .app-review-list__item .star-rating img {
+  width: 12px;
+}
+
+.app-review-box__reviews .app-review-list__item .app-builder {
+  display: flex;
+  align-items: center;
+}
+
+.app-review-box__reviews .app-review-list__item .app-builder img {
+  width: 100%;
+  height: auto;
+}
+
+.app-review-box__reviews .app-review-list__item .creation-date {
+  color: var(--clr-gray-dark);
+  font-size: var(--font-description);
+}

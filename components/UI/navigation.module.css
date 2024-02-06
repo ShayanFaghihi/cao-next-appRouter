@@ -1,0 +1,12 @@
+.navigator-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.navigator-section h1 {
+  color: var(--clr-black);
+  font-size: var(--font-title-md);
+}

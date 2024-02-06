@@ -2,10 +2,13 @@ import Hero from "@/components/home/hero";
 import styles from "./page.module.css";
 import AppsList from "@/components/appBuilders/appsList";
 
-import appBuilders from "@/builders.json";
+import { getAllAppBuildersHome } from "@/lib/api";
 import Container from "@/components/UI/container";
 
-export default function Home() {
+export default async function Home() {
+  const data = await getAllAppBuildersHome();
+  const appBuilders = data.edges;
+
   return (
     <main className={styles.main}>
       <Container>

@@ -4,15 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import CompareContext from "@/context/compare-context";
 
-import classes from "./appBox.module.css";
+import classes from "./AppBox.module.css";
 
 import heartIcon from "@/assets/icons/heart.svg";
 import emptyHeartIcon from "@/assets/icons/heart-unliked.svg";
 import linkIcon from "@/assets/icons/link.svg";
 
-export default function AppBox({ title, featuredImg, excerpt, isForAdd }) {
+const AppBox = ({ title, featuredImg, excerpt, isForAdd }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const slug = title.toLowerCase();
 
   const compareCtx = useContext(CompareContext);
 
@@ -63,75 +64,73 @@ export default function AppBox({ title, featuredImg, excerpt, isForAdd }) {
   return (
     <li className={classes["app-box"]}>
       <div className={classes["app-box__image"]}>
-        <Image src={featuredImg} alt={featuredImg} width="200" height="200" />
-        <span
-          className={
-            isLiked
-              ? classes["like-button"]
-              : `${classes["like-button"]} ${classes.unliked}`
-          }
-          onClick={addToFavourite}
-        >
-          <Image src={isLiked ? heartIcon : emptyHeartIcon} alt="Heart Icon" />
-        </span>
+        <Link href={`/app_builders/${slug}`}>
+          <Image
+            src={featuredImg.node.sourceUrl}
+            alt={featuredImg.node.altText}
+            width="200"
+            height="200"
+          />
+          <span
+            className={
+              isLiked
+                ? classes["like-button"]
+                : `${classes["like-button"]} ${classes.unliked}`
+            }
+            onClick={addToFavourite}
+          >
+            <Image
+              src={isLiked ? heartIcon : emptyHeartIcon}
+              alt="Heart Icon"
+            />
+          </span>
+        </Link>
       </div>
 
       <div className={classes["app-box__content"]}>
-        <h3>{title}</h3>
+        <h3>
+          <Link href={`/app_builders/${slug}`}>{title}</Link>
+        </h3>
         <p>{purifyTexts(excerpt, 30)}</p>
         {/* Strip HTML code from excerpt */}
       </div>
 
       <div className={classes["app-box__actions"]}>
-        {!isForAdd ? (
-          // When it is only for comparing
-          <>
-            <Link
-              href={`/app-builder/${title}`}
-              className={classes["app-box__actions--link-btn"]}
-            >
-              <span>
-                <Image src={linkIcon} alt="" />
-              </span>
-              Link
-            </Link>
-            <span
-              onClick={() => checkToCompare(title)}
-              className={
-                !isChecked
-                  ? `${classes["app-box__actions--compare"]}`
-                  : `${classes["app-box__actions--compare"]} ${classes.selected}`
-              }
-            ></span>
-          </>
-        ) : // When an app should be selected from the pop up modal
-        !compareCtx.appBuildersToCompare.app1Name &&
+        {isForAdd ? (
+          // When an app should be selected from the pop up modal
+
+          !compareCtx.appBuildersToCompare.app1Name &&
           !compareCtx.appBuildersToCompare.app2Name ? (
-          <Link
-            href={`/compare${title}`}
-            className={["app-box__actions--link-btn"]}
-            onClick={() => checkToCompare(title)}
-          >
-            Add
-          </Link>
+            <Link
+              href={`/compare${title}`}
+              className={["app-box__actions--link-btn"]}
+              onClick={() => checkToCompare(title)}
+            >
+              Add
+            </Link>
+          ) : (
+            <Link
+              href={`/compare${
+                compareCtx.appBuildersToCompare.app1Name
+                  ? compareCtx.appBuildersToCompare.app1Name
+                  : title
+              }/${
+                compareCtx.appBuildersToCompare.app2Name
+                  ? compareCtx.appBuildersToCompare.app2Name
+                  : title
+              }`}
+              className={classes["app-box__actions--link-btn"]}
+              onClick={() => checkToCompare(title)}
+            >
+              Add
+            </Link>
+          )
         ) : (
-          <Link
-            href={`/compare${
-              compareCtx.appBuildersToCompare.app1Name
-                ? compareCtx.appBuildersToCompare.app1Name
-                : title
-            }/${
-              compareCtx.appBuildersToCompare.app2Name
-                ? compareCtx.appBuildersToCompare.app2Name
-                : title
-            }`}
-            className={classes["app-box__actions--link-btn"]}
-            onClick={() => checkToCompare(title)}
-          >
-            Add
-          </Link>
+          ""
         )}
       </div>
     </li>
   );
-}
+};
+
+export default AppBox;

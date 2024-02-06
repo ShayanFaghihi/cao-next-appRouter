@@ -1,15 +1,15 @@
-import React from "react";
+import Image from "next/image";
 import Link from "next/link";
+import arrowLeft from "@/assets/icons/arrow-left.svg";
+import classes from "./navigation.module.css";
 
-const Navigation = (props) => {
+export default function Navigation(props) {
   return (
-    <section className="navigator-section">
+    <section className={classes["navigator-section"]}>
       <Link href="/">
-        <img src="/icons/arrow-left.svg" alt="" />
+        <Image src={arrowLeft} alt="Arrow to left" />
       </Link>
       <h1>{props.pageTitle}</h1>
     </section>
   );
-};
-
-export default Navigation;
+}
