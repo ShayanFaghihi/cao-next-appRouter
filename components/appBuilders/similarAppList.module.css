@@ -1,0 +1,55 @@
+.similar-apps-section {
+  margin-top: 5rem;
+}
+
+.similar-apps-section .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.similar-apps-section .heading h2 {
+  font-size: var(--font-title-md);
+}
+
+.similar-apps-section .heading form {
+  position: relative;
+  width: 50%;
+  display: flex;
+  width: min(50%, 300px);
+}
+
+.similar-apps-section .heading form input {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  background-color: var(--clr-gray);
+  font-size: var(--font-description);
+  width: 100%;
+  color: var(--clr-gray-dark);
+  margin-left: 10px;
+}
+
+.similar-apps-section .heading form span {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.similar-apps-section .heading form span img {
+  width: 80%;
+}
+
+.similar-apps-section .view-more-btn {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin-left: 35.5%;
+}

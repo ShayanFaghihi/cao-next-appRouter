@@ -1,22 +1,26 @@
-import React from "react";
 import AppsList from "./appsList";
 import Button from "../UI/button";
 
+import classes from "./similarAppList.module.css";
+import magnifierIcon from "@/assets/icons/magnifier.svg";
+import Image from "next/image";
+
 export default function SimilarAppList(props) {
-  const appBuilders = props.appBuilders;
+  const appBuilders = props.appBuilders?.edges;
+
   return (
-    <section className="similar-apps-section">
-      <div className="heading">
+    <section className={classes["similar-apps-section"]}>
+      <div className={classes["heading"]}>
         <h2>Similar Apps</h2>
         <form>
           <input type="search" placeholder="Search" />
           <span>
-            <img src="/icons/magnifier.svg" alt="" />{" "}
+            <Image src={magnifierIcon} alt="Magnifier Icon" />{" "}
           </span>
         </form>
       </div>
-      <AppsList iterationLimit={3} appBuilders={appBuilders} />
-      <Button target="/" classes="cta-btn view-more-btn">
+      <AppsList appBuilders={appBuilders} />
+      <Button target="/app_builders" className={classes["view-more-btn"]}>
         View More
       </Button>
     </section>

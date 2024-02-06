@@ -1,0 +1,15 @@
+.cta-button {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: var(--clr-blue);
+  color: var(--clr-light);
+  padding: 14px 14px;
+  border-radius: 10px;
+  font-size: var(--font-button);
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  width: 259px;
+}

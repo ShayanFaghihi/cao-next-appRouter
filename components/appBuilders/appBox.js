@@ -10,10 +10,9 @@ import heartIcon from "@/assets/icons/heart.svg";
 import emptyHeartIcon from "@/assets/icons/heart-unliked.svg";
 import linkIcon from "@/assets/icons/link.svg";
 
-const AppBox = ({ title, featuredImg, excerpt, isForAdd }) => {
+const AppBox = ({ slug, title, featuredImg, excerpt, isForAdd }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-  const slug = title.toLowerCase();
 
   const compareCtx = useContext(CompareContext);
 

@@ -8,7 +8,7 @@ export default async function appBuildersPage() {
   return (
     <>
       <Navigation pageTitle="App Builders" />
-      <AppsList appBuilders={appBuilders} />;
+      <AppsList appBuilders={appBuilders} />
     </>
   );
 }
