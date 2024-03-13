@@ -1,4 +1,4 @@
-import AppsList from "./appsList";
+import AppBox from "./appBox";
 import Button from "../UI/button";
 
 import classes from "./similarAppList.module.css";
@@ -19,7 +19,17 @@ export default function SimilarAppList(props) {
           </span>
         </form>
       </div>
-      <AppsList appBuilders={appBuilders} />
+      <section className={classes["app-list-section"]}>
+        {appBuilders?.map(({ node }) => (
+          <AppBox
+            key={node.id}
+            slug={node.slug}
+            title={node.title}
+            featuredImg={node.featuredImage}
+            excerpt={node.excerpt}
+          />
+        ))}
+      </section>
       <Button target="/app_builders" className={classes["view-more-btn"]}>
         View More
       </Button>

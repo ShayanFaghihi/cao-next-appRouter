@@ -25,6 +25,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
+  height: auto;
 }
 
 .app-box__image img {
@@ -86,12 +87,12 @@
   margin-top: auto;
 }
 
-.app-box__actions .app-box__actions--link-btn {
+.app-box__actions .app-box__actions--link-btn,
+.app-box__actions .app-box__actions--compare-btn {
   cursor: pointer;
   width: 80%;
   border-radius: 10px;
   padding: 10px 25px;
-  border: 1px solid var(--clr-blue);
   outline: none;
   display: flex;
   justify-content: center;
@@ -101,7 +102,25 @@
   font-size: var(--font-button);
   gap: 10px;
   font-weight: 500;
+}
+
+.app-box__actions .app-box__actions--compare-btn {
+  background-color: #fff;
+  border: 1px solid var(--clr-blue);
   color: var(--clr-blue);
+}
+
+.app-box__actions .app-box__actions--compare-btn.selected {
+  background-color: var(--clr-gray);
+  border: none;
+  color: var(--clr-light);
+}
+
+.app-box__actions .app-box__actions--link-btn {
+  border: none;
+  outline: none;
+  background-color: var(--clr-blue);
+  color: var(--clr-light);
 }
 
 @media (width < 768px) {
@@ -112,6 +131,7 @@
 
 .app-box__actions .app-box__actions--link-btn img {
   width: 2vmin;
+  height: auto;
 }
 
 .app-box__actions .app-box__actions--compare {

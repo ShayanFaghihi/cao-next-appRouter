@@ -53,3 +53,16 @@
   width: 30%;
   margin-left: 35.5%;
 }
+
+.app-list-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (width > 760px) {
+  .app-list-section {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}

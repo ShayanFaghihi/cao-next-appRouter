@@ -1,48 +1,26 @@
 "use client";
-import React, { useState, useContext, useEffect } from "react";
 import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import CompareContext from "@/context/compare-context";
 
 import classes from "./appBox.module.css";
 
 import heartIcon from "@/assets/icons/heart.svg";
 import emptyHeartIcon from "@/assets/icons/heart-unliked.svg";
-import linkIcon from "@/assets/icons/link.svg";
 
-const AppBox = ({ slug, title, featuredImg, excerpt, isForAdd }) => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
-
-  const compareCtx = useContext(CompareContext);
-
-  useEffect(() => {
-    // Make the app box checked when it is selected as an app to compare
-    if (
-      compareCtx.appBuildersToCompare.app1Name === title ||
-      compareCtx.appBuildersToCompare.app2Name === title
-    ) {
-      setIsChecked(true);
-    }
-  }, []);
-
-  const checkToCompare = (appName) => {
-    if (
-      appName != compareCtx.appBuildersToCompare.app1Name &&
-      appName != compareCtx.appBuildersToCompare.app2Name &&
-      !compareCtx.isTwoAppSelected
-    ) {
-      setIsChecked(true);
-      compareCtx.compareAppBuilders(appName);
-    } else {
-      setIsChecked(false);
-      compareCtx.removeAppFromList(appName);
-    }
-  };
-
-  const addToFavourite = () => {
-    setIsLiked((prevState) => !prevState);
-  };
+const AppBox = ({
+  slug,
+  title,
+  featuredImg,
+  excerpt,
+  isForAdd,
+  isSelected,
+  addToFavourite,
+  isLiked,
+  compareHandler,
+}) => {
+  const { appBuilder: appBuildersArray } = useParams();
+  const router = useRouter();
 
   const purifyTexts = (text, limit) => {
     let purifiedText = "";
@@ -60,72 +38,95 @@ const AppBox = ({ slug, title, featuredImg, excerpt, isForAdd }) => {
     return purifiedText;
   };
 
+  // Add the app from modal to the local storage
+  const addToLocalStorageHandler = () => {
+    const compareList =
+      JSON.parse(localStorage.getItem("appBuildersToCompare")) || [];
+
+    compareList.push(slug);
+    localStorage.setItem("appBuildersToCompare", JSON.stringify(compareList));
+
+    if (!appBuildersArray) {
+      router.push(`/compare/${slug}`);
+    } else {
+      router.push(`/compare/${appBuildersArray[0]}/${slug}`);
+    }
+  };
+
   return (
     <li className={classes["app-box"]}>
       <div className={classes["app-box__image"]}>
-        <Link href={`/app_builders/${slug}`}>
-          <Image
-            src={featuredImg.node.sourceUrl}
-            alt={featuredImg.node.altText}
-            width="200"
-            height="200"
-          />
-          <span
-            className={
-              isLiked
-                ? classes["like-button"]
-                : `${classes["like-button"]} ${classes.unliked}`
-            }
-            onClick={addToFavourite}
-          >
+        {!isForAdd ? (
+          <Link href={`/app_builders/${slug}`}>
             <Image
-              src={isLiked ? heartIcon : emptyHeartIcon}
-              alt="Heart Icon"
+              src={featuredImg.node.sourceUrl}
+              alt={featuredImg.node.altText}
+              width={200}
+              height={200}
             />
-          </span>
-        </Link>
+            <span
+              className={
+                isLiked
+                  ? classes["like-button"]
+                  : `${classes["like-button"]} ${classes.unliked}`
+              }
+              onClick={addToFavourite}
+            >
+              <Image
+                src={isLiked ? heartIcon : emptyHeartIcon}
+                alt="Heart Icon"
+                width={20}
+                height={20}
+              />
+            </span>
+          </Link>
+        ) : (
+          <>
+            <Image
+              src={featuredImg.node.sourceUrl}
+              alt={featuredImg.node.altText}
+              width={200}
+              height={200}
+            />
+          </>
+        )}
       </div>
 
       <div className={classes["app-box__content"]}>
         <h3>
-          <Link href={`/app_builders/${slug}`}>{title}</Link>
+          {!isForAdd ? (
+            <Link href={`/app_builders/${slug}`}>{title}</Link>
+          ) : (
+            title
+          )}
         </h3>
-        <p>{purifyTexts(excerpt, 30)}</p>
+        <p dangerouslySetInnerHTML={{ __html: purifyTexts(excerpt, 30) }}></p>
         {/* Strip HTML code from excerpt */}
       </div>
 
       <div className={classes["app-box__actions"]}>
         {isForAdd ? (
-          // When an app should be selected from the pop up modal
-
-          !compareCtx.appBuildersToCompare.app1Name &&
-          !compareCtx.appBuildersToCompare.app2Name ? (
-            <Link
-              href={`/compare${title}`}
-              className={["app-box__actions--link-btn"]}
-              onClick={() => checkToCompare(title)}
-            >
-              Add
-            </Link>
-          ) : (
-            <Link
-              href={`/compare${
-                compareCtx.appBuildersToCompare.app1Name
-                  ? compareCtx.appBuildersToCompare.app1Name
-                  : title
-              }/${
-                compareCtx.appBuildersToCompare.app2Name
-                  ? compareCtx.appBuildersToCompare.app2Name
-                  : title
-              }`}
-              className={classes["app-box__actions--link-btn"]}
-              onClick={() => checkToCompare(title)}
-            >
-              Add
-            </Link>
-          )
+          // When there is no app builder in the compare columns
+          <button
+            className={classes["app-box__actions--link-btn"]}
+            onClick={addToLocalStorageHandler}
+          >
+            Add
+          </button>
+        ) : !isSelected ? (
+          <button
+            className={`${classes["app-box__actions--compare-btn"]}`}
+            onClick={() => compareHandler(slug)}
+          >
+            Add To Compare
+          </button>
         ) : (
-          ""
+          <button
+            className={`${classes["app-box__actions--compare-btn"]} ${classes.selected}`}
+            onClick={() => compareHandler(slug)}
+          >
+            Selected
+          </button>
         )}
       </div>
     </li>

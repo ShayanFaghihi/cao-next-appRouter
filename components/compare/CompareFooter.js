@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
-import CompareContext from "../context/compare-context";
 import Button from "../UI/button";
 
-const CompareFooter = ({ visible }) => {
-  const compareCtx = useContext(CompareContext);
+import classes from "./compareFooter.module.css";
 
+const CompareFooter = ({ visible, appBuildersToCompare }) => {
   return (
     <section
-      className={!visible ? "sticky-compare-box" : "sticky-compare-box visible"}
+      className={
+        !visible
+          ? classes["sticky-compare-box"]
+          : `${classes["sticky-compare-box"]} ${classes.visible}`
+      }
     >
       <Button
-        target={`/compare/${compareCtx.appBuildersToCompare.app1Name}/${compareCtx.appBuildersToCompare.app2Name}`}
-        classes="cta-btn"
+        target={`/compare/${appBuildersToCompare[0]}/${appBuildersToCompare[1]}`}
       >
         Compare
       </Button>

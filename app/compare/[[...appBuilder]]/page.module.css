@@ -1,0 +1,8 @@
+.compare-table-section .compare-table {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  box-shadow: var(--box-shadow-box);
+  border-radius: 10px;
+  text-align: center;
+}
