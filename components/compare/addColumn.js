@@ -21,7 +21,7 @@ const customStyles = {
 
 ReactModal.setAppElement("#root");
 
-const AddCompareColumn = ({ appBuilders }) => {
+export default function AddCompareColumn({ appBuilders }) {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -68,6 +68,4 @@ const AddCompareColumn = ({ appBuilders }) => {
       </ReactModal>
     </div>
   );
-};
-
-export default AddCompareColumn;
+}

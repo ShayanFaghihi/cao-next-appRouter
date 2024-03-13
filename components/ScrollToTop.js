@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { useRouter } from './RouterContext';
+import { useEffect } from "react";
+import { useRouter } from "./RouterContext";
 
-const ScrollToTop = () => {
+export default function ScrollToTop() {
   const router = useRouter();
 
   useEffect(() => {
@@ -9,6 +9,4 @@ const ScrollToTop = () => {
   }, [router.route]);
 
   return null;
-};
-
-export default ScrollToTop;
+}

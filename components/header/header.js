@@ -10,7 +10,7 @@ import mainLogo from "@/assets/images/logo.png";
 import hamburgerIcon from "@/assets/images/hamburger.png";
 import Container from "../UI/container";
 
-const Header = () => {
+export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const pathname = usePathname();
 
@@ -93,6 +93,4 @@ const Header = () => {
       </Container>
     </header>
   );
-};
-
-export default Header;
+}

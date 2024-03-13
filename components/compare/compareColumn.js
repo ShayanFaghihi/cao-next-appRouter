@@ -13,7 +13,7 @@ import starIcon from "@/assets/icons/Star.svg";
 
 import classes from "./compareColumn.module.css";
 
-const AppCompareColumn = ({ appBuilder }) => {
+export default function AppCompareColumn({ appBuilder }) {
   const router = useRouter();
   const { appBuilder: appBuildersArr } = useParams();
 
@@ -252,6 +252,4 @@ const AppCompareColumn = ({ appBuilder }) => {
       </ul>
     </div>
   );
-};
-
-export default AppCompareColumn;
+}

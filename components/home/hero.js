@@ -3,7 +3,6 @@ import Image from "next/image";
 import classes from "./hero.module.css";
 import magnifier from "@/assets/icons/magnifier.svg";
 import filter from "@/assets/icons/filter.svg";
-import Container from "../UI/container";
 
 export default function Hero() {
   return (

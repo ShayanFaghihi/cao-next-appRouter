@@ -8,7 +8,7 @@ import classes from "./appBox.module.css";
 import heartIcon from "@/assets/icons/heart.svg";
 import emptyHeartIcon from "@/assets/icons/heart-unliked.svg";
 
-const AppBox = ({
+export default function AppBox({
   slug,
   title,
   featuredImg,
@@ -18,7 +18,7 @@ const AppBox = ({
   addToFavourite,
   isLiked,
   compareHandler,
-}) => {
+}) {
   const { appBuilder: appBuildersArray } = useParams();
   const router = useRouter();
 
@@ -131,6 +131,4 @@ const AppBox = ({
       </div>
     </li>
   );
-};
-
-export default AppBox;
+}

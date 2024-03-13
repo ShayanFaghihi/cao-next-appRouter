@@ -1,6 +1,6 @@
 import classes from "./titleColumn.module.css";
 
-const CompareTitleColumn = () => {
+export default function CompareTitleColumn() {
   return (
     <div
       className={`${classes["compare-table__headings"]} ${classes["table-column"]}`}
@@ -42,6 +42,4 @@ const CompareTitleColumn = () => {
       </ul>
     </div>
   );
-};
-
-export default CompareTitleColumn;
+}

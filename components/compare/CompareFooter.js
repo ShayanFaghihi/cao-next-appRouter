@@ -2,7 +2,7 @@ import Button from "../UI/button";
 
 import classes from "./compareFooter.module.css";
 
-const CompareFooter = ({ visible, appBuildersToCompare }) => {
+export default function CompareFooter({ visible, appBuildersToCompare }) {
   return (
     <section
       className={
@@ -18,6 +18,4 @@ const CompareFooter = ({ visible, appBuildersToCompare }) => {
       </Button>
     </section>
   );
-};
-
-export default CompareFooter;
+}
