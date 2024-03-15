@@ -17,7 +17,7 @@ export default function Hero() {
       </p>
       <form className={classes["search-form"]}>
         <label>
-          <Image src={magnifier} alt="Magnifier Icon" />
+          <Image src={magnifier} alt="Magnifier Icon" width={20} height={20} />
         </label>
         <input type="search" placeholder="Search" />
         <button type="submit">

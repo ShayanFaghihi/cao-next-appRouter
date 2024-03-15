@@ -61,8 +61,8 @@ export default function AppBox({
             <Image
               src={featuredImg.node.sourceUrl}
               alt={featuredImg.node.altText}
-              width={200}
-              height={200}
+              width={"200"}
+              height={"200"}
             />
             <span
               className={
