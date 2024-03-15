@@ -11,11 +11,13 @@ export default function CompareFooter({ visible, appBuildersToCompare }) {
           : `${classes["sticky-compare-box"]} ${classes.visible}`
       }
     >
-      <Button
-        target={`/compare/${appBuildersToCompare[0]}/${appBuildersToCompare[1]}`}
-      >
-        Compare
-      </Button>
+      {visible && (
+        <Button
+          target={`/compare/${appBuildersToCompare[0]}/${appBuildersToCompare[1]}`}
+        >
+          Compare
+        </Button>
+      )}
     </section>
   );
 }
