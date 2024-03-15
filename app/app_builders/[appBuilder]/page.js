@@ -8,9 +8,9 @@ export default async function SingleAppPage({ params }) {
 
   return (
     <>
-      <Navigation pageTitle={data.appBuilder.title} />
-      <AppReviewBox appBuilder={data.appBuilder} />
-      <SimilarAppList appBuilders={data.appBuilders} />
+      <Navigation pageTitle={data?.appBuilder.title} />
+      <AppReviewBox appBuilder={data?.appBuilder} />
+      <SimilarAppList appBuilders={data?.appBuilders} />
     </>
   );
 }
