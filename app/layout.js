@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import { revalidateTag } from "next/cache";
 import "./globals.css";
 import Header from "@/components/header/header";
 
@@ -11,6 +12,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  revalidateTag("appBuilders");
   return (
     <html lang="en">
       <body className={montserrat.className} id="root">

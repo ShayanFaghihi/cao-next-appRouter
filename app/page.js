@@ -12,6 +12,7 @@ export default async function Home() {
     <main className={styles.main}>
       <Container>
         <Hero />
+        <h1>{appBuilders[0].node.title}</h1>
         <AppsList appBuilders={appBuilders} />
       </Container>
     </main>
