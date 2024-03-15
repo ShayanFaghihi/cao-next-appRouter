@@ -4,7 +4,7 @@ import Navigation from "@/components/UI/navigation";
 
 export default async function appBuildersPage() {
   const data = await getAllAppBuilders();
-  const appBuilders = data.edges;
+  const appBuilders = data?.edges;
   return (
     <>
       <Navigation pageTitle="App Builders" />
