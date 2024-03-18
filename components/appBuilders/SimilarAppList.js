@@ -6,7 +6,7 @@ import Button from "../UI/button";
 import classes from "./similarAppList.module.css";
 import magnifierIcon from "@/assets/icons/magnifier.svg";
 import Image from "next/image";
-import CompareFooter from "../compare/compareFooter";
+import CompareFooter from "../compare/stickyCompare";
 
 export default function SimilarAppList(props) {
   const appBuilders = props.appBuilders?.edges;
