@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import AppBox from "./appBox";
 
 import classes from "./appsList.module.css";
-import CompareFooter from "../compare/compareFooter";
+import CompareTitleColumn from "../compare/titleColumn";
 
 export default function AppsList({ appBuilders }) {
   const [compareList, setCompareList] = useState([]);
@@ -50,7 +50,7 @@ export default function AppsList({ appBuilders }) {
           />
         ))}
       </section>
-      <CompareFooter />
+      <CompareTitleColumn />
     </>
   );
 }
