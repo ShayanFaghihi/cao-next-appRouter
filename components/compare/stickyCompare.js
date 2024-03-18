@@ -2,7 +2,7 @@ import Button from "../UI/button";
 
 import classes from "./compareFooter.module.css";
 
-export default function CompareFooter({ visible, appBuildersToCompare }) {
+export default function StickyCompare({ visible, appBuildersToCompare }) {
   return (
     <section
       className={
