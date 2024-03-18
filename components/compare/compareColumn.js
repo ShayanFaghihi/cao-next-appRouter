@@ -17,16 +17,6 @@ export default function AppCompareColumn({ appBuilder }) {
   const router = useRouter();
   const { appBuilder: appBuildersArr } = useParams();
 
-  const [compareList, setCompareList] = useState([]);
-
-  useEffect(() => {
-    // Get App Builders list from User Local Storage
-    const selectedAppBuilders = localStorage.getItem("appBuildersToCompare");
-    if (selectedAppBuilders) {
-      setCompareList(JSON.parse(selectedAppBuilders));
-    }
-  }, []);
-
   const removeApp = () => {
     // check whether there is another app in the compare phase or not
     if (appBuildersArr.length === 2) {

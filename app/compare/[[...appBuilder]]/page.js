@@ -1,5 +1,6 @@
 import { getAllAppBuilders, getAppBuilderAndMore } from "@/lib/api";
-// import Navigation from "@/components/UI/navigation";
+
+import PageTitle from "@/components/UI/pageTitle";
 import AppCompareColumn from "@/components/compare/compareColumn";
 import AddCompareColumn from "@/components/compare/addColumn";
 import CompareTitleColumn from "@/components/compare/titleColumn";
@@ -22,7 +23,7 @@ export default async function AppBuilder({ params }) {
 
   return (
     <>
-      {/* <Navigation pageTitle="Compare App Builders" /> */}
+      <PageTitle pageTitle="Compare App Builders" />
       <section className={classes["compare-table-section"]}>
         <div className={classes["compare-table"]}>
           <CompareTitleColumn />

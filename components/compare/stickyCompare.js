@@ -1,6 +1,6 @@
 import Button from "../UI/button";
 
-import classes from "./compareFooter.module.css";
+import classes from "./stickyCompare.module.css";
 
 export default function StickyCompare({ visible, appBuildersToCompare }) {
   return (

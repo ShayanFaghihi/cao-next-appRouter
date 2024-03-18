@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import arrowLeft from "@/assets/icons/arrow-left.svg";
-import classes from "./navigation.module.css";
+import classes from "./pageTitle.module.css";
 
-export default function Navigation(props) {
+export default function PageTitle(props) {
   return (
     <section className={classes["navigator-section"]}>
       <Link href="/">
