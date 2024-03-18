@@ -1,12 +1,12 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import AppBox from "./appBox";
 import Button from "../UI/button";
 
 import classes from "./similarAppList.module.css";
+import StickyCompare from "../compare/stickyCompare";
 import magnifierIcon from "@/assets/icons/magnifier.svg";
-import Image from "next/image";
-import CompareFooter from "../compare/stickyCompare";
 
 export default function SimilarAppList(props) {
   const appBuilders = props.appBuilders?.edges;
@@ -67,7 +67,7 @@ export default function SimilarAppList(props) {
       <Button target="/app_builders" className={classes["view-more-btn"]}>
         View More
       </Button>
-      <CompareFooter
+      <StickyCompare
         visible={compareList.length === 2}
         appBuildersToCompare={compareList}
       />
