@@ -1,15 +1,7 @@
-import classes from "./compareFooter.module.css";
-
-export default function CompareFooter({ visible, appBuildersToCompare }) {
+export default function CompareFooter() {
   return (
-    <section
-      className={
-        !visible
-          ? classes["sticky-compare-box"]
-          : `${classes["sticky-compare-box"]} ${classes.visible}`
-      }
-    >
-      {visible && <button>Compare</button>}
+    <section>
+      <h1>Compare</h1>
     </section>
   );
 }

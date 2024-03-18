@@ -50,10 +50,7 @@ export default function AppsList({ appBuilders }) {
           />
         ))}
       </section>
-      <CompareFooter
-        visible={compareList.length === 2}
-        appBuildersToCompare={compareList}
-      />
+      <CompareFooter />
     </>
   );
 }
