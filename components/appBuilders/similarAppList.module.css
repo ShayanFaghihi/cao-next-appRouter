@@ -42,10 +42,6 @@
   align-items: center;
 }
 
-.similar-apps-section .heading form span img {
-  width: 80%;
-}
-
 .similar-apps-section .view-more-btn {
   margin-top: 4rem;
   display: flex;

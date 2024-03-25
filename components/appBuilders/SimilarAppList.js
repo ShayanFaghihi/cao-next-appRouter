@@ -3,9 +3,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import AppBox from "./appBox";
 import Button from "../UI/button";
+import StickyCompare from "../compare/stickyCompare";
 
 import classes from "./similarAppList.module.css";
-import StickyCompare from "../compare/stickyCompare";
 import magnifierIcon from "@/assets/icons/magnifier.svg";
 
 export default function SimilarAppList(props) {

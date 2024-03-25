@@ -51,7 +51,7 @@ export default function AppReviewBox({ appBuilder }) {
           <div className={classes["app-review-box__content--actions"]}>
             <div className={classes["app-review__link"]}>
               <span>
-                <Image src={linkIcon} alt="Link icon" width={20} height={20} />
+                <Image src={linkIcon} alt="Link icon" width={10} height={10} />
               </span>
               <Link
                 href={appBuilder.appBuilderCustomFields.websiteUrl}
@@ -106,8 +106,8 @@ export default function AppReviewBox({ appBuilder }) {
                               <Image
                                 src={androidIcon}
                                 alt="Android Suppport"
-                                width={20}
-                                height={20}
+                                width={15}
+                                height={15}
                               />
                             </li>
                           );
@@ -120,8 +120,8 @@ export default function AppReviewBox({ appBuilder }) {
                               <Image
                                 src={iosIcon}
                                 alt="IOS Suppport"
-                                width={20}
-                                height={20}
+                                width={15}
+                                height={15}
                               />
                             </li>
                           );
@@ -134,8 +134,8 @@ export default function AppReviewBox({ appBuilder }) {
                               <Image
                                 src={pwaIcon}
                                 alt="PWA Suppport"
-                                width={20}
-                                height={20}
+                                width={15}
+                                height={15}
                               />
                             </li>
                           );
@@ -166,8 +166,8 @@ export default function AppReviewBox({ appBuilder }) {
                       key={index}
                       src={starIcon}
                       alt="Star Rating"
-                      width={20}
-                      height={20}
+                      width={12}
+                      height={12}
                     />
                   ))}
                 </div>
@@ -181,8 +181,8 @@ export default function AppReviewBox({ appBuilder }) {
                       key={index}
                       src={starIcon}
                       alt="Star Rating"
-                      width={20}
-                      height={20}
+                      width={12}
+                      height={12}
                     />
                   ))}
                 </div>

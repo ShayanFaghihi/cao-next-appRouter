@@ -80,9 +80,7 @@
   justify-content: center;
   align-items: center;
 }
-.app-review-box__content--actions .app-review__link span img {
-  width: 10px;
-}
+
 .app-review-box__content--actions .app-review__link a {
   text-decoration: none;
   font-size: var(--font-title-sm);
@@ -181,14 +179,6 @@
 }
 
 .app-review-box__reviews
-  .app-review-list__item
-  .app-support-list
-  .app-support-list__item
-  img {
-  width: 15px;
-}
-
-.app-review-box__reviews
   .app-reviews-list
   .app-review-list__item
   .app-builder
@@ -199,10 +189,6 @@
 .app-review-box__reviews .app-review-list__item .star-rating {
   display: flex;
   align-items: center;
-}
-
-.app-review-box__reviews .app-review-list__item .star-rating img {
-  width: 12px;
 }
 
 .app-review-box__reviews .app-review-list__item .app-builder {
