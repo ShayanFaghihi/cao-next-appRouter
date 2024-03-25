@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 import classes from "./appBox.module.css";
 
@@ -15,12 +16,16 @@ export default function AppBox({
   excerpt,
   isForAdd,
   isSelected,
-  addToFavourite,
   isLiked,
   compareHandler,
 }) {
   const { appBuilder: appBuildersArray } = useParams();
   const router = useRouter();
+  const [isAppLiked, setIsAppLiked] = useState(isLiked);
+
+  useEffect(() => {
+    setIsAppLiked(isLiked);
+  }, [isLiked]);
 
   const purifyTexts = (text, limit) => {
     let purifiedText = "";
@@ -39,7 +44,7 @@ export default function AppBox({
   };
 
   // Add the app from modal to the local storage
-  const addToLocalStorageHandler = () => {
+  const addToLocalStorageToCompare = () => {
     const compareList =
       JSON.parse(localStorage.getItem("appBuildersToCompare")) || [];
 
@@ -53,33 +58,50 @@ export default function AppBox({
     }
   };
 
+  // Add the Liked App to the local storage
+  const addToFavouriteHandler = () => {
+    let likedAppsList =
+      JSON.parse(localStorage.getItem("likedAppBuilders")) || [];
+
+    if (isAppLiked) {
+      likedAppsList = likedAppsList.filter((item) => item !== slug);
+      setIsAppLiked(false);
+    } else {
+      likedAppsList.push(slug);
+      setIsAppLiked(true);
+    }
+    localStorage.setItem("likedAppBuilders", JSON.stringify(likedAppsList));
+  };
+
   return (
     <li className={classes["app-box"]}>
       <div className={classes["app-box__image"]}>
         {!isForAdd ? (
-          <Link href={`/app_builders/${slug}`}>
-            <Image
-              src={featuredImg.node.sourceUrl}
-              alt={featuredImg.node.altText}
-              width={"200"}
-              height={"200"}
-            />
+          <>
+            <Link href={`/app_builders/${slug}`}>
+              <Image
+                src={featuredImg.node.sourceUrl}
+                alt={featuredImg.node.altText}
+                width={"200"}
+                height={"200"}
+              />
+            </Link>
             <span
               className={
-                isLiked
+                isAppLiked
                   ? classes["like-button"]
                   : `${classes["like-button"]} ${classes.unliked}`
               }
-              onClick={addToFavourite}
             >
               <Image
-                src={isLiked ? heartIcon : emptyHeartIcon}
+                src={isAppLiked ? heartIcon : emptyHeartIcon}
                 alt="Heart Icon"
                 width={20}
                 height={20}
+                onClick={addToFavouriteHandler}
               />
             </span>
-          </Link>
+          </>
         ) : (
           <>
             <Image
@@ -109,7 +131,7 @@ export default function AppBox({
           // When there is no app builder in the compare columns
           <button
             className={classes["app-box__actions--link-btn"]}
-            onClick={addToLocalStorageHandler}
+            onClick={addToLocalStorageToCompare}
           >
             Add
           </button>

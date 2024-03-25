@@ -70,7 +70,9 @@ export default function AppReviewBox({ appBuilder }) {
                     height={20}
                   />
                 </span>
-                <span className={classes["like-counter"]}>50</span>
+                <span className={classes["like-counter"]}>
+                  {appBuilder.appBuilderLikes.appBuilderLikesCount}
+                </span>
               </div>
               <span className={classes["share-button"]}>
                 <Image
